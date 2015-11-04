@@ -34,53 +34,48 @@ format JSON suivant :
 
 {
     "commande": "foo",
-    "params": {
-        "nom": "axz",
-        "surnoms": ["xxx","xxy","xxz", etc.],
-        "oldname":"valOldName",
-        "newname":"valNewName"		
-    		}			
+    "params": ["xxx","xxy","xxz", etc..]
 }
 
 Exemple : si le client tape "removeName Forquet", le serveur reçoit la chaine :
 
- {"commande":"removeName","params":{"nom":"Forquet"}}
+ {"commande":"removeName","params":["Forquet"]}
 
 
  ----------Liste des commandes----------
 
 -add name surnom1 surnom2 etc.
 -> ajout d'un nom avec une liste de surnoms eventuellement vide (si le nom existe déjà on rajoute les surnoms au nom existant)
-JSON : { "commande":"add", "params":{"nom":"name", "surnoms":["surnom1","surnom2", etc.]}}
+JSON : { "commande":"add", "params": ["name","surnom1","surnom2", etc.]}}
 
 -list
 -> liste tous les noms avec leurs surnoms associés
-JSON : { "commande":"list"}
+JSON : { "commande":"list", "params": []}
 
 -searchName name
 -> recherche un nom et affiche tous ses surnoms associés
-JSON : { "commande":"searchName", "params":{"nom":"name"}}
+JSON : { "commande":"searchName", "params":["name"]}
 
 -searchNick nick
 -> cherche un surnom et affiche le nom associé ainsi que tous ses surnoms
-JSON : { "commande":"searchNick", "params":{"nom":"nick"}}
+JSON : { "commande":"searchNick", "params":["nick"]}
 
 -modifyName name newName
 -> modifie un nom existant
-JSON : { "commande":"modifyName", "params":{"oldname":"name","newname":"newName"}}
+JSON : { "commande":"modifyName", "params":["oldname","newname"]}
 
 -addNick name nick
 -> ajoute un surnom à un nom existant
-JSON : { "commande":"addNick", "params":{"nom":"name", "surnoms":["nick"]}}
+JSON : { "commande":"addNick", "params":["name", "nick1", "nick2"]}
 
 -modifyNick nick newNick
 -> modifie un surnom existant
-JSON : { "commande":"modifyNick", "params":{"oldname":"nick","newname":"newNick"}}
+JSON : { "commande":"modifyNick", "params":["oldnick","newNick"]}
 
 -removeNick nick
 -> supprime un surnom
-JSON : { "commande":"removeNick", "params":{"nom":"nick"}}
+JSON : { "commande":"removeNick", "params":["nick"]}
 
 -removeName name
 -> supprime un nom 
-JSON : { "commande":"removeName", "params":{"nom":"name"}}
+JSON : { "commande":"removeName", "params":["name"]}
