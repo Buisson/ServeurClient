@@ -26,7 +26,8 @@ public class Serveur {
 	}
 	
 	public void sendResponse(String mess){
-		//TODO
+		output.println(mess);
+		output.flush();
 	}
 	
 	public void read(){
@@ -37,6 +38,7 @@ public class Serveur {
 		
 		if(message_distant!=null){
 			System.out.println(message_distant);
+			sendResponse("OK BIEN RECU!");
 		}
 	}
 	

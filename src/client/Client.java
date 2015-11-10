@@ -13,8 +13,13 @@ public class Client {
 	private Socket myClient;
 	private PrintStream output;
 	private BufferedReader input;
+	private String message_serveur;
 	
 	
+	public String getMessage_serveur() {
+		return message_serveur;
+	}
+
 	public Client(String machineName,int portNumber){
 		try {
 			myClient = new Socket(machineName,portNumber);
@@ -28,6 +33,22 @@ public class Client {
 	public void sendMessage(String mess){
 		output.println(mess);
 		output.flush();
+	}
+	
+	public boolean read(){
+		try {
+			message_serveur = input.readLine();
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		if(message_serveur!=null){
+			System.out.println(message_serveur);
+			message_serveur=null;
+			return true;
+		}
+		return false;
 	}
 	
 }

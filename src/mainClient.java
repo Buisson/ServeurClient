@@ -10,11 +10,11 @@ public class mainClient {
 		Client c = new Client("127.0.0.1",2000);
 		Scanner readUserCommand = new Scanner(System.in);
 		
-		System.out.println("Veuillez entrer une commande :");
 		while(true){
 			System.out.println("Veuillez entrer une commande :");
 			String commandToSend = readUserCommand.nextLine();
 			c.sendMessage(commandToSend);
+			while(!c.read());
 		}
 	}
 
