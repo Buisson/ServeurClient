@@ -35,7 +35,9 @@ public class Serveur {
 		} 
 		catch (IOException e) {e.printStackTrace();}
 		
-		System.out.println(message_distant);
+		if(message_distant!=null){
+			System.out.println(message_distant);
+		}
 	}
 	
 }
