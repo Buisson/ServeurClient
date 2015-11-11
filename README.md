@@ -27,55 +27,42 @@ Le système respectera les contraintes suivantes :
 
 ----------Serialisation et protocole d'application----------
 
-Type de serialisation choisi : Chaine au format JSON.
+Type de serialisation choisi : Chaine.
 
 Lorsque l'utilisateur tape une requete au clavier, le client envoie une string au
-format JSON suivant : 
+format suivant :
 
-{
-    "commande": "foo",
-    "params": ["xxx","xxy","xxz", etc..]
-}
+     commande parm1 param2 parm3 etc...
 
 Exemple : si le client tape "removeName Forquet", le serveur reçoit la chaine :
 
- {"commande":"removeName","params":["Forquet"]}
+removeName Forquet
 
 
  ----------Liste des commandes----------
 
 -add name surnom1 surnom2 etc.
 -> ajout d'un nom avec une liste de surnoms eventuellement vide (si le nom existe déjà on rajoute les surnoms au nom existant)
-JSON : { "commande":"add", "params": ["name","surnom1","surnom2", etc.]}}
-
 -list
 -> liste tous les noms avec leurs surnoms associés
-JSON : { "commande":"list", "params": []}
 
 -searchName name
 -> recherche un nom et affiche tous ses surnoms associés
-JSON : { "commande":"searchName", "params":["name"]}
 
 -searchNick nick
 -> cherche un surnom et affiche le nom associé ainsi que tous ses surnoms
-JSON : { "commande":"searchNick", "params":["nick"]}
 
 -modifyName name newName
 -> modifie un nom existant
-JSON : { "commande":"modifyName", "params":["oldname","newname"]}
 
 -addNick name nick
 -> ajoute un surnom à un nom existant
-JSON : { "commande":"addNick", "params":["name", "nick1", "nick2"]}
 
 -modifyNick nick newNick
 -> modifie un surnom existant
-JSON : { "commande":"modifyNick", "params":["oldnick","newNick"]}
 
 -removeNick nick
 -> supprime un surnom
-JSON : { "commande":"removeNick", "params":["nick"]}
 
 -removeName name
--> supprime un nom 
-JSON : { "commande":"removeName", "params":["name"]}
+-> supprime un nom
