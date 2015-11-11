@@ -1,4 +1,4 @@
-package serveur;
+package serveur.serialization;
 
 /**
  * @author tijani on 11/11/15.

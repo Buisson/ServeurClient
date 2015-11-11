@@ -1,4 +1,4 @@
-package serveur;
+package serveur.serialization;
 
 import java.util.List;
 

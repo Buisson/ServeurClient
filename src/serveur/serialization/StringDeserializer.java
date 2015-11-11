@@ -1,4 +1,4 @@
-package serveur;
+package serveur.serialization;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
