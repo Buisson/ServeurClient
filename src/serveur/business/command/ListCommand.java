@@ -15,7 +15,7 @@ public class ListCommand implements Command {
     @Override
     public String run(java.util.List<String> params,Table table) {
         Map<String, List<String>> listAll = table.listAll();
-        String answer = "listing:|";
+        String answer = "listing:|Noms\tSurnoms|###############|";
         for(String key : listAll.keySet())
         {
             answer = answer + key + "\t" + listAll.get(key) + "|";
