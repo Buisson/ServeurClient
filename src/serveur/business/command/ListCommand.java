@@ -8,21 +8,19 @@ import java.util.Map;
 /**
  * @author tijani on 04/11/15.
  */
-public class ListCommand extends Command<List<String>> {
+public class ListCommand implements Command {
 
 
-    public ListCommand(Table table) {
-        super(table);
-    }
 
     @Override
-    public String run(List<String> params) {
-        Map<String,List<String>> listAll = this.getTable().listAll();
-        String answer = "listing ; \n";
+    public String run(java.util.List<String> params,Table table) {
+        Map<String, List<String>> listAll = table.listAll();
+        String answer = "listing:|";
         for(String key : listAll.keySet())
         {
-            answer = key + "\t" + listAll.get(key) + "\n";
+            answer = answer + key + "\t" + listAll.get(key) + "|";
         }
+
         return answer;
     }
 }

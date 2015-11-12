@@ -1,7 +1,6 @@
 package client;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
@@ -44,8 +43,8 @@ public class Client {
 		}
 		
 		if(message_serveur!=null){
-			System.out.println(message_serveur);
-			message_serveur=null;
+            System.out.println(message_serveur.replace("|","\n"));
+            message_serveur=null;
 			return true;
 		}
 		return false;

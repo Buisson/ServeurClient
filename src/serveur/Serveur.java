@@ -1,5 +1,9 @@
 package serveur;
 
+import serveur.business.Table.Table;
+import serveur.serialization.IFormat;
+import serveur.serialization.StringFormat;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,14 +17,18 @@ public class Serveur {
 	private Socket clientSocket = null;
 	private PrintStream output;
 	private BufferedReader input;
-	private String message_distant;
+    private Table table;
+    private IFormat format;
 	
-	public Serveur(){
+	public Serveur(Table table, IFormat format){
 		try {
-			service = new ServerSocket(2000);
-			clientSocket = service.accept();
-			output = new PrintStream(clientSocket.getOutputStream());
-			input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+			this.service = new ServerSocket(2000);
+			this.clientSocket = service.accept();
+			this.output = new PrintStream(clientSocket.getOutputStream());
+			this.input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            this.table = table;
+            this.format = format;
+
 		}
 		catch (IOException e) {e.printStackTrace();}
 	}
@@ -32,14 +40,15 @@ public class Serveur {
 	
 	public void read(){
 		try {
-			message_distant = input.readLine();
+            String message = input.readLine();
+            if(message != null) {
+                format = new StringFormat(message);
+                sendResponse(ReflexiveUtility.execute(format.getCommand(), format.getParams(), table));
+            }
 		} 
 		catch (IOException e) {e.printStackTrace();}
-		
-		if(message_distant!=null){
-			System.out.println(message_distant);
-			sendResponse("OK BIEN RECU!");
-		}
+
+
 	}
 	
 }

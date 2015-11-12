@@ -22,7 +22,7 @@ public class Table {
 
     public Map<String,List<String>> listAll()
     {
-       return  new HashMap<String,List<String>>(associations);
+       return  associations;
     }
 
     public void add(String name, List<String> nicknames)

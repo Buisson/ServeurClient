@@ -3,21 +3,13 @@ package serveur.business.command;
 
 import serveur.business.Table.Table;
 
+import java.util.List;
+
 /**
  * @author tijani on 04/11/15.
  */
-public abstract class Command<k> {
+public interface Command {
 
-    private Table table;
 
-    public Command(Table table)
-    {
-        this.table = table;
-    }
-
-  public abstract String run (k params);
-
-    public Table getTable() {
-        return table;
-    }
+  public String run (List<String> params, Table table);
 }

@@ -8,18 +8,15 @@ import java.util.List;
 /**
  * @author tijani on 04/11/15.
  */
-public class AddCommand extends Command<List<String>> {
+public class AddCommand implements  Command {
 
 
-    public AddCommand(Table table) {
-        super(table);
-    }
 
     @Override
-    public String run(List<String> params)
+    public String run(List<String> params, Table table)
     {
         try {
-            this.getTable().add(params.get(0), params.subList(1, params.size() - 1));
+            table.add(params.get(0), params.subList(1, params.size()));
         }
         catch (IndexOutOfBoundsException e)
         {
