@@ -1,6 +1,8 @@
+import java.net.SocketException;
 import java.util.Scanner;
 
 import client.Client;
+
 import java.util.regex.*;
 
 public class mainClient {
@@ -14,7 +16,7 @@ public class mainClient {
 		System.out.println("Veuillez rentrer l'IP du serveur (taper entrer pour avoir l'adresse IP par defaut 127.0.0.1)");
 		String ipConf = readUserCommand.nextLine();
 		Matcher matcher = pattern.matcher(ipConf);
-	    
+		
 	    while(!matcher.matches()){
 	    	System.out.println("##"+ipConf+"##");
 	    	if(ipConf.isEmpty()){
@@ -25,15 +27,29 @@ public class mainClient {
 	    	ipConf = readUserCommand.nextLine();
 	    	matcher = pattern.matcher(ipConf);
 	    }
-	    
-	    //System.out.println("ipConf : "+ipConf);
-	    Client c = new Client(ipConf,2000);
+	    int port=2000;
+	    System.out.println("Veuillez rentrer le numero de port (rentrer le numero port par defaut 2000)");
+		port = readUserCommand.nextInt();
+		readUserCommand = new Scanner(System.in);
+		
+	    Client c = new Client(ipConf,port);
 		
 		while(true){
 			System.out.println("Veuillez entrer une commande :");
 			String commandToSend = readUserCommand.nextLine();
+			
 			c.sendMessage(commandToSend);
-			while(!c.read());
+				boolean tmp=false;
+				while(!tmp){
+					try{
+						tmp=c.read();
+					}
+					catch(Exception e){
+						System.out.println("ici?");break;
+					}
+				}
+
+			
 		}
 	}
 }

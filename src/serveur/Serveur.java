@@ -19,6 +19,10 @@ public class Serveur {
 	private BufferedReader input;
     private Table table;
     private IFormat format;
+    
+	public ServerSocket getService() {
+		return service;
+	}
 	
 	public Serveur(Table table, IFormat format){
 		try {
@@ -42,6 +46,7 @@ public class Serveur {
 		try {
             String message = input.readLine();
             if(message != null) {
+            	System.out.println("Message reçu du client : "+message);
                 format = new StringFormat(message);
                 sendResponse(ReflexiveUtility.execute(format.getCommand(), format.getParams(), table));
             }

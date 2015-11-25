@@ -2,6 +2,7 @@ import serveur.Serveur;
 import serveur.business.Table.Table;
 import serveur.serialization.StringFormat;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
