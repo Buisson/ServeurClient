@@ -1,7 +1,7 @@
 # ServeurClient
 Client Serveur Java utilisation de socket java protocole TCP
 
---------------------ServiceTCPForquetRobin.txt Rendu de Forquet Vincent et Robin Gregory SI4G3---------------------
+--------------------ServiceTCPForquetRobin.txt Rendu de Colombet Aurélien et Tijani Yassine SI4G3---------------------
 
 ----------Liste des services----------
 
