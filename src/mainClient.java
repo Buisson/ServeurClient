@@ -39,16 +39,7 @@ public class mainClient {
 			String commandToSend = readUserCommand.nextLine();
 			
 			c.sendMessage(commandToSend);
-				boolean tmp=false;
-				while(!tmp){
-					try{
-						tmp=c.read();
-					}
-					catch(Exception e){
-						System.out.println("ici?");break;
-					}
-				}
-
+			while(!c.read());
 			
 		}
 	}

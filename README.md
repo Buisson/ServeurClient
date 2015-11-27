@@ -1,7 +1,26 @@
 # ServeurClient
 Client Serveur Java utilisation de socket java protocole TCP
 
---------------------ServiceTCPForquetRobin.txt Rendu de Colombet Aurélien et Tijani Yassine SI4G3---------------------
+--------------------ServiceTCPColombetTijani.txt Rendu de Colombet Aurélien et Tijani Yassine SI4G3---------------------
+
+----------Comment se connecter au serveur----------
+
+	Pour se connecter au serveur il faut rentrer dans le client l'adresse IP du serveur (récupéré par ifconfig) lors du lancement du client. Ensuite il faut rentrer le port utilisé par le serveur (notre serveur utilise le port 2000). Après cela vous serez connecté au serveur.
+
+----------type de bufferisation----------
+
+	Nous avons utilisé pour la Bufferisation nous avons utilisé les Class java suivantes :
+		-PrintStream pour envoyer des messages.
+		-BufferedReader pour lire les message qui sont envoyé.
+
+----------Encodage des chaines----------
+
+	L'encodage des chaines de caractère utilise l'UTF-8.
+
+----------Format des chaines envoyées----------
+	
+	Nous avons utilisé un caractère spéciale pour simuler les '\n'. Si nous voulons envoyé un retour à la ligne il faut mettre le caractère '|' dans la chaîne de caractère envoyé. Tout les \n serons remplacé par un retour à la ligne se qui permet de formater les reponses du serveur pour le client.
+
 
 ----------Liste des services----------
 
@@ -66,3 +85,10 @@ removeName Forquet
 
 -removeName name
 -> supprime un nom
+
+----------Choix des deux requetes à implementer----------
+
+-> ajout d'un nom avec une liste de surnoms eventuellement vide (si le nom existe déjà on rajoute les surnoms au nom existant)
+-> liste tous les noms avec leurs surnoms associés
+
+
