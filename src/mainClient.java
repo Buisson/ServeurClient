@@ -41,20 +41,21 @@ public class mainClient {
 			temp = readUserCommand.next();
 			matcherint = patternInt.matcher(temp);
 		}
-		if(port!=2000)
+            if(!temp.equals(""))
 			port = Integer.parseInt(temp);
 		
 		readUserCommand = new Scanner(System.in);
 		
 	    Client c = new Client(ipConf,port);
-		
-		while(true){
+        String commandToSend = "";
+		while(!commandToSend.equals("quit")){
 			System.out.println("Veuillez entrer une commande :");
-			String commandToSend = readUserCommand.nextLine();
-			
+			commandToSend = readUserCommand.nextLine();
+
 			c.sendMessage(commandToSend);
 			while(!c.read());
 			
 		}
+        c.close();
 	}
 }

@@ -33,7 +33,19 @@ public class Client {
 		output.println(mess);
 		output.flush();
 	}
-	
+	public void close()
+    {
+        try {
+            input.close();
+            output.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+
+        }
+
+    }
 	public boolean read(){
 		try {
 			message_serveur = input.readLine();
