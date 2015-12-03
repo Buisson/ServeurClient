@@ -9,11 +9,12 @@ import java.util.List;
  */
 public class StringFormat implements IFormat {
 
+    public static String SEPARATOR = " ";
     private String[] data;
 
     public StringFormat(String data)
     {
-        this.data = data.split(" ");
+        this.data = data.split(SEPARATOR);
     }
 
     @Override
